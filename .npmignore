@@ -1,0 +1,22 @@
+.git
+__tests__/
+.github/
+coverage/
+# dist/*.map
+node_modules/
+package/
+dummies/
+src/
+tests/
+.czrc*
+.eslintrc*
+.gitignore
+.npmignore
+.npmrc
+.releaserc*
+clean-package.config*
+jest.config*
+package-lock.json
+package.json.backup
+rollup.config*
+tsconfig.json
