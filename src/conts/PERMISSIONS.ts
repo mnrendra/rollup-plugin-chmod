@@ -1,0 +1,12 @@
+const PERMISSIONS = {
+  NO_PERMISSION: '0',
+  EXECUTE_ONLY: '1',
+  WRITE_ONLY: '2',
+  WRITE_AND_EXECUTE: '3',
+  READ_ONLY: '4',
+  READ_AND_EXECUTE: '5',
+  READ_AND_WRITE: '6',
+  READ_WRITE_AND_EXECUTE: '7'
+} as const
+
+export default PERMISSIONS
