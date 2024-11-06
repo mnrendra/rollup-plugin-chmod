@@ -1,6 +1,6 @@
 {
   "name": "@mnrendra/rollup-plugin-chmod",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Rollup plugin to change file permission modes.",
   "private": false,
   "main": "dist/index.js",
