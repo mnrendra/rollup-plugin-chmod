@@ -1,10 +1,6 @@
 # @mnrendra/rollup-plugin-chmod
 🍣 A [Rollup](https://rollupjs.org/) plugin to change file permission modes.
 
-## Requirements
-✅ [LTS](https://github.com/nodejs/Release) Node version (v14.21.3+),  
-✅ [Rollup](https://www.npmjs.com/package/rollup) (v4.24.0+) 
-
 ## Install
 ```bash
 npm i -D @mnrendra/rollup-plugin-chmod
@@ -71,6 +67,7 @@ module.exports = [
          * - The group may read and execute the file.
          * - Others may read and execute the file.
          *
+         * @see https://nodejs.org/api/fs.html#file-modes
          * */
         mode: '755'
       })
@@ -88,8 +85,8 @@ The three rightmost digits define permissions for the file **owner**, **group**,
 ```typescript
 import type {
   Mode,
-  Plugin,
-  Options
+  Options,
+  Plugin
 } from '@mnrendra/rollup-plugin-chmod'
 ```
 

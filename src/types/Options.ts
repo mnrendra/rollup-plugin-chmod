@@ -1,7 +1,7 @@
 import type Mode from './Mode'
 
 /**
- * `rollup-plugin-chmod` options interface.
+ * The options interface.
  *
  * @see https://github.com/mnrendra/rollup-plugin-chmod#readme
  */
