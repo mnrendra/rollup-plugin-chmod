@@ -1,6 +1,6 @@
 import type { OutputOptions } from 'rollup'
 
-import type { Plugin } from '@/types'
+import type { Bundle, Plugin } from '@/types'
 
 import { writeFileSync, unlinkSync, statSync } from 'node:fs'
 
@@ -25,17 +25,23 @@ describe('Test all features:', () => {
     expect(plugin.version).toBe(pkg.version)
   })
 
-  it('Should throw an error when the `output` option has a `dir` value!', () => {
+  it('Should reject whitin error when the `output` option has a `dir` value!', () => {
     const received = (): void => {
-      plugin.writeBundle({ dir: '' } as unknown as OutputOptions)
+      plugin.writeBundle(
+        { dir: '' } as unknown as OutputOptions,
+        {} as unknown as Bundle
+      )
     }
 
     expect(received).toThrow(Error('This plugin doesn\'t support `output.dir`.'))
   })
 
-  it('Should throw an error when the `output` option does not have a `file` value!', () => {
+  it('Should reject whitin error when the `output` option does not have a `file` value!', () => {
     const received = (): void => {
-      plugin.writeBundle({ file: undefined } as unknown as OutputOptions)
+      plugin.writeBundle(
+        { file: undefined } as unknown as OutputOptions,
+        {} as unknown as Bundle
+      )
     }
 
     expect(received).toThrow(Error('This plugin requires an `output.file`.'))
@@ -51,7 +57,11 @@ describe('Test all features:', () => {
     })
 
     it('Should be able to `chmod` the dummy file!', () => {
-      plugin.writeBundle({ file: './tes' } as unknown as OutputOptions)
+      plugin.writeBundle(
+        { file: './tes' } as unknown as OutputOptions,
+        {} as unknown as Bundle
+      )
+
       const { mode } = statSync('./tes')
 
       const received = (mode & 0o777).toString(8)
@@ -74,7 +84,11 @@ describe('Test all features:', () => {
     })
 
     it('Should be able to `chmod` the dummy file with the `mode` option!', () => {
-      plugin.writeBundle({ file: './tes' } as unknown as OutputOptions)
+      plugin.writeBundle(
+        { file: './tes' } as unknown as OutputOptions,
+        {} as unknown as Bundle
+      )
+
       const { mode } = statSync('./tes')
 
       const received = (mode & 0o777).toString(8)
