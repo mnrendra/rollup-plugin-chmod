@@ -11,8 +11,8 @@ import store from '../store'
  *
  * *Part of Rollup's Output Generation Hooks.*
  *
- * @param {OutputOptions} options Rollup `OutputOptions`.
- * @param {Bundle} bundle Rollup bundle.
+ * @param {OutputOptions} options - Rollup `OutputOptions`.
+ * @param {Bundle} bundle - Rollup bundle.
  *
  * @see https://rollupjs.org/plugin-development/#writeBundle
  */
