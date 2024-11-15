@@ -6,9 +6,9 @@ import store from './store'
 import { outputGenerationHooks } from './core'
 
 /**
- * 🍣 A [Rollup](https://rollupjs.org/) plugin to change the file permission modes.
+ * 🍣 A [Rollup](https://rollupjs.org/) plugin to change file permission modes.
  *
- * @param {Options} options Options object.
+ * @param {Options} options - The options object.
  *
  * @returns {Promise<Plugin>} Rollup plugin object.
  *
@@ -41,5 +41,4 @@ const main = async ({
   }
 }
 
-// Export the `main` as the default value.
 export default main
