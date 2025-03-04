@@ -24,7 +24,7 @@ const main = async ({
   store.mode = mode
 
   // Print info.
-  await printInfo(store)
+  printInfo(store)
 
   // Return Rollup plugin object.
   return {
