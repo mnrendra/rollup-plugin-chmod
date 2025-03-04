@@ -1,4 +1,4 @@
-import type { OutputOptions } from 'rollup'
+import type { NormalizedOutputOptions } from 'rollup'
 
 import type { Bundle, Plugin } from '@/types'
 
@@ -28,7 +28,7 @@ describe('Test all features:', () => {
   it('Should reject whitin error when the `output` option has a `dir` value!', () => {
     const received = (): void => {
       plugin.writeBundle(
-        { dir: '' } as unknown as OutputOptions,
+        { dir: '' } as unknown as NormalizedOutputOptions,
         {} as unknown as Bundle
       )
     }
@@ -39,7 +39,7 @@ describe('Test all features:', () => {
   it('Should reject whitin error when the `output` option does not have a `file` value!', () => {
     const received = (): void => {
       plugin.writeBundle(
-        { file: undefined } as unknown as OutputOptions,
+        { file: undefined } as unknown as NormalizedOutputOptions,
         {} as unknown as Bundle
       )
     }
@@ -58,7 +58,7 @@ describe('Test all features:', () => {
 
     it('Should be able to `chmod` the dummy file!', () => {
       plugin.writeBundle(
-        { file: './tes' } as unknown as OutputOptions,
+        { file: './tes' } as unknown as NormalizedOutputOptions,
         {} as unknown as Bundle
       )
 
@@ -85,7 +85,7 @@ describe('Test all features:', () => {
 
     it('Should be able to `chmod` the dummy file with the `mode` option!', () => {
       plugin.writeBundle(
-        { file: './tes' } as unknown as OutputOptions,
+        { file: './tes' } as unknown as NormalizedOutputOptions,
         {} as unknown as Bundle
       )
 

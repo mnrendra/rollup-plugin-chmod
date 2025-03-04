@@ -1,9 +1,12 @@
-import type { Options, Plugin } from './types'
+import { chmodSync } from 'node:fs'
+
+import type { OutputOptions } from 'rollup'
+
+import type { Bundle, Options, Plugin } from './types'
 
 import { initStore, printInfo } from '@mnrendra/rollup-utils'
 
 import store from './store'
-import { outputGenerationHooks } from './core'
 
 /**
  * 🍣 A [Rollup](https://rollupjs.org/) plugin to change file permission modes.
@@ -20,9 +23,6 @@ const main = async ({
   // Initialize store.
   await initStore(store)
 
-  // Store options.
-  store.mode = mode
-
   // Print info.
   printInfo(store)
 
@@ -37,7 +37,17 @@ const main = async ({
     /**
      * Output Generation Hooks
      */
-    writeBundle: outputGenerationHooks.writeBundle
+    writeBundle: ({ dir, file }: OutputOptions, bundle: Bundle): void => {
+      if (dir !== undefined) {
+        throw new Error('This plugin doesn\'t support `output.dir`.')
+      }
+
+      if (file === undefined) {
+        throw new Error('This plugin requires an `output.file`.')
+      }
+
+      chmodSync(file, mode)
+    }
   }
 }
 
