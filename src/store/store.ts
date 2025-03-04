@@ -9,9 +9,7 @@ const store: Store = {
   pluginName: '',
   name: '',
   version: '',
-  homepage: '',
-  // options
-  mode: '644'
+  homepage: ''
 }
 
 export default store

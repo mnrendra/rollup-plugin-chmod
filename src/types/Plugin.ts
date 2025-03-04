@@ -1,11 +1,16 @@
-import type { Plugin as RollupPlugin } from 'rollup'
-
-import type { outputGenerationHooks } from '../core'
+import type {
+  Plugin as RollupPlugin,
+  NormalizedOutputOptions,
+  OutputBundle
+} from 'rollup'
 
 interface Plugin extends RollupPlugin {
   name: string
   version: string
-  writeBundle: typeof outputGenerationHooks.writeBundle
+  writeBundle: (
+    options: NormalizedOutputOptions,
+    bundle: OutputBundle
+  ) => void
 }
 
 export default Plugin
